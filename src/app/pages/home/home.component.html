@@ -1,0 +1,27 @@
+<h1 class="mt-3 font-weight-light">YouTube Videos</h1>
+<hr>
+
+<div *ngIf="videos.length >0" class="row">
+    <div *ngFor="let video of videos" class="col-md-3 animate__animated animate__fadeIn animate__delay-1s">
+        <div class="card">
+            <img [src]="video.thumbnails.high.url" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">{{ video.title }}</h5>
+                <p class="card-text">
+                    <strong>Published:</strong> {{ video.publishedAt | date: 'dd/MM/yyyy' }}
+                </p>
+                <button (click)="showVideos(video)" class="btn btn-outline-primary btn-block">
+                    Watch video
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5 mb-5 text-center animate__fadeIn animate__delay-2s">
+    <div class="col">
+        <button (click)="getVideos()" class="btn btn-primary btn-lg">
+            Next Page
+        </button>
+    </div>
+</div>
